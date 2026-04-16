@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { AppFooter } from "../presentation/widgets/app-footer/ui/AppFooter";
+import { ClarityProvider } from "../presentation/widgets/clarity-provider/ui/ClarityProvider";
 
 export const metadata: Metadata = {
   title: {
@@ -23,6 +24,9 @@ export default function RootLayout({
           <div className="flex-1">{children}</div>
           <AppFooter />
         </div>
+        <ClarityProvider
+          projectId={process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID ?? ""}
+        />
       </body>
     </html>
   );
