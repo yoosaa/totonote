@@ -1,21 +1,14 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { useCreateAppointment } from "../model/useCreateAppointment";
 import { AppointmentFormFields } from "@/src/presentation/widgets/appointment-editor/ui/AppointmentFormFields";
 
 export function CreateAppointmentForm() {
   const { draft, fieldErrors, isSubmitting, updateDraft, submit } =
     useCreateAppointment();
-  const [isClientReady, setIsClientReady] = useState(false);
-
-  useEffect(() => {
-    setIsClientReady(true);
-  }, []);
 
   return (
     <form
-      data-client-ready={isClientReady ? "true" : "false"}
       className="space-y-6"
       onSubmit={(event) => {
         event.preventDefault();
